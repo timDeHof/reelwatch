@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { v4 as uuidv4 } from 'uuid';
 
-import { useAppwrite } from '@/providers/appwriteProvider';
+import { useAppwrite } from '@/app/providers/appwriteProvider';
 
-import { Routes } from '@/config/routes';
+import { Routes } from '@/shared/config/routes';
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -54,13 +54,13 @@ const Register = () => {
   };
 
   return (
-    <div className="w-full rounded bg-white p-6 shadow md:w-1/2 lg:w-1/3">
+    <div className="w-full p-6 bg-white rounded shadow md:w-1/2 lg:w-1/3">
       <div>
         <h2
           tabIndex={0}
           role="heading"
           aria-label="Create your account"
-          className="text-center text-2xl font-extrabold leading-6 text-gray-800"
+          className="text-2xl font-extrabold leading-6 text-center text-gray-800"
         >
           Create an account
         </h2>
@@ -78,7 +78,7 @@ const Register = () => {
               type="text"
               autoComplete="new-password"
               required
-              className="relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder:text-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+              className="relative block w-full px-3 py-2 text-gray-900 border border-gray-300 rounded-md appearance-none placeholder:text-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
               placeholder="Name"
               value={name}
               onChange={handleNameChange}
@@ -94,7 +94,7 @@ const Register = () => {
               type="email"
               autoComplete="email"
               required
-              className="relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder:text-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+              className="relative block w-full px-3 py-2 text-gray-900 border border-gray-300 rounded-md appearance-none placeholder:text-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
               placeholder="Email address"
               value={email}
               onChange={handleEmailChange}
@@ -104,14 +104,14 @@ const Register = () => {
             <label htmlFor="register-password" className="sr-only">
               Password
             </label>
-            <div className="relative flex rounded-md border border-gray-300 px-3 py-2 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+            <div className="relative flex px-3 py-2 border border-gray-300 rounded-md focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
               <input
                 id="register-password"
                 name="password"
                 type={showPasswords ? 'text' : 'password'}
                 autoComplete="new-password"
                 required
-                className="relative block w-full appearance-none text-gray-900 placeholder:text-gray-500 focus:outline-none"
+                className="relative block w-full text-gray-900 appearance-none placeholder:text-gray-500 focus:outline-none"
                 placeholder="Password"
                 value={password}
                 onChange={handlePasswordChange}
@@ -147,14 +147,14 @@ const Register = () => {
             <label htmlFor="confirmPassword" className="sr-only">
               Confirm Password
             </label>
-            <div className="relative flex rounded-md border border-gray-300 px-3 py-2 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+            <div className="relative flex px-3 py-2 border border-gray-300 rounded-md focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
               <input
                 id="confirmPassword"
                 name="confirmPassword"
                 type={showPasswords ? 'text' : 'password'}
                 autoComplete="new-password"
                 required
-                className="relative block w-full appearance-none text-gray-900 placeholder:text-gray-500 focus:outline-none"
+                className="relative block w-full text-gray-900 appearance-none placeholder:text-gray-500 focus:outline-none"
                 placeholder="Confirm Password"
                 value={confirmPassword}
                 onChange={handleConfirmPasswordChange}
@@ -189,11 +189,11 @@ const Register = () => {
         </div>
 
         {error && (
-          <div className="rounded-md bg-red-50 p-4">
+          <div className="p-4 rounded-md bg-red-50">
             <div className="flex">
               <div className="shrink-0">
                 <svg
-                  className="size-5 text-red-400"
+                  className="text-red-400 size-5"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
@@ -213,11 +213,11 @@ const Register = () => {
         <div>
           <button
             type="submit"
-            className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            className="relative flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md group hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
           >
             <span className="absolute inset-y-0 left-0 flex items-center pl-3">
               <svg
-                className="size-5 text-indigo-500 group-hover:text-indigo-400"
+                className="text-indigo-500 size-5 group-hover:text-indigo-400"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
