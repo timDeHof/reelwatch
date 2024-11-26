@@ -7,7 +7,7 @@ import {
 } from 'react';
 import { ID, Query } from 'appwrite';
 
-import { databases } from '@/lib/appwrite';
+import { databases } from '@/shared/lib/appwrite';
 
 export const IDEAS_DATABASE_ID = process.env
   .NEXT_PUBLIC_APPWRITE_DATABASE_ID as string;

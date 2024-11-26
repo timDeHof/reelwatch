@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { type Account, type Client, type Databases } from 'appwrite';
 
-import { account, client, databases } from '@/lib/appwrite';
+import { account, client, databases } from '@/shared/lib/appwrite';
 
 interface AppwriteProviderProps {
   children: React.ReactNode;

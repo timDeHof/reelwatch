@@ -2,8 +2,8 @@ import { createContext, useContext, useState } from 'react';
 import { ID, type Models } from 'appwrite';
 import { useSetAtom } from 'jotai';
 
-import { isLoggedInAtom } from '@/atoms/user';
-import { account } from '@/lib/appwrite';
+import { isLoggedInAtom } from '@/entities/user/model/store';
+import { account } from '@/shared/lib/appwrite';
 
 type UserContextType = {
   current: Models.Session | Models.Preferences | null;
@@ -24,7 +24,7 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
   );
   const setIsLoggedIn = useSetAtom(isLoggedInAtom);
   async function login(email: string, password: string) {
-    const loggedIn = await account.createEmailSession(email, password);
+    const loggedIn = await account.createEmailPasswordSession(email, password);
     if (loggedIn) {
       setUser(loggedIn);
       setIsLoggedIn(true);
