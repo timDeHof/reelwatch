@@ -2,16 +2,16 @@ import React, { useCallback, useEffect, useState } from 'react';
 import type { NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { MovieType } from '@/typings/movie.types';
+import { MovieType } from '@/entities/movie/model/types';
 import { useAtomValue } from 'jotai';
 
 import noMoviesImage from '@/assets/no-movies-Icon.png';
-import { isLoggedInAtom } from '@/atoms/user';
-import Layout from '@/components/layout';
-import Pagination from '@/components/Pagination';
-import WatchlistItem from '@/components/watchlistItem';
+import { isLoggedInAtom } from '@/entities/user/model/store';
+import Layout from '@/shared/ui/layout';
+import Pagination from '@/widgets/pagination';
+import WatchlistItem from '@/widgets/watchlist-item';
 
-import { Routes } from '@/config/routes';
+import { Routes } from '@/shared/config/routes';
 
 const Watchlist: NextPage = React.memo(() => {
   // Declare necessary state variables for handling offsets and movies.
@@ -70,7 +70,7 @@ const Watchlist: NextPage = React.memo(() => {
           <p>
             Please{' '}
             <Link
-              className="cursor-pointer text-sky-800 underline underline-offset-4 hover:text-rose-900"
+              className="underline cursor-pointer text-sky-800 underline-offset-4 hover:text-rose-900"
               href={Routes.login}
             >
               login
@@ -92,7 +92,7 @@ const Watchlist: NextPage = React.memo(() => {
             {' '}
             Head over to{' '}
             <Link
-              className="cursor-pointer text-sky-800 underline underline-offset-4 hover:text-rose-900"
+              className="underline cursor-pointer text-sky-800 underline-offset-4 hover:text-rose-900"
               href={'/search'}
             >
               {' '}
@@ -104,7 +104,7 @@ const Watchlist: NextPage = React.memo(() => {
         <>
           {/* Render JSX to display the list of movies */}
           <section className="pb-4 text-gray-600">
-            <div className="my-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-4">
+            <div className="grid grid-cols-1 gap-4 my-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-4">
               {movies.map((movie: MovieType) => {
                 return (
                   <WatchlistItem

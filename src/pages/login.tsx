@@ -1,14 +1,14 @@
 import React from 'react';
 
-import Layout from '@/components/layout';
-import Login from '@/components/login';
+import Layout from '@/shared/ui/layout';
+import { LoginForm } from '@/features/auth';
 
 const LoginPage = () => {
   return (
     <Layout>
-      <div className="container flex h-screen w-full flex-col items-center">
+      <div className="container flex flex-col items-center w-full h-screen">
         {/* Render the Login component inside the container element. */}
-        <Login />
+        <LoginForm />
       </div>
     </Layout>
   );
