@@ -22,13 +22,12 @@
         ],
         "baseUrl": ".",
         "paths": {
-            "@/*": ["./*"],
-            "@/components/*": ["src/components/*"],
-            "@/typings/*": ["typings/*"],
-            "@/providers/*": ["src/providers/*"],
-            "@/atoms/*": ["src/atoms/*"],
-            "@/config/*": ["src/config/*"],
-            "@/styles/*": ["/styles/*"]
+          "@/*": ["./*"],
+          "@/shared/*": ["shared/*"],
+          "@/entities/*": ["entities/*"],
+          "@/features/*": ["features/*"],
+          "@/widgets/*": ["widgets/*"],
+          "@/app/*": ["app/*"]
         }
     },
     "include": [

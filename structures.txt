@@ -1,0 +1,87 @@
+.
+├── CONTRIBUTING.md
+├── LICENSE
+├── README.md
+├── appwrite.json
+├── assets
+│   ├── accept-icon.png
+│   ├── add-icon.png
+│   ├── add.svg
+│   ├── appoved.svg
+│   ├── film-reel-svgrepo-com.svg
+│   ├── movies-poster-wall.png
+│   ├── next.svg
+│   ├── no-movies-Icon.png
+│   ├── remove-icon.png
+│   ├── remove.svg
+│   ├── search-icon.png
+│   ├── starRating.png
+│   ├── visibility-off.svg
+│   └── visibility.svg
+├── lib
+│   └── appwrite.ts
+├── next-env.d.ts
+├── next.config.js
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── prettier.config.js
+├── public
+│   ├── images
+│   │   ├── android-chrome-192x192.png
+│   │   ├── android-chrome-512x512.png
+│   │   ├── apple-touch-icon.png
+│   │   ├── favicon-16x16.png
+│   │   ├── favicon-32x32.png
+│   │   ├── favicon.ico
+│   │   └── site.webmanifest
+│   └── vercel.svg
+├── roadmap.md
+├── src
+│   ├── atoms
+│   │   └── user.ts
+│   ├── components
+│   │   ├── Pagination.tsx
+│   │   ├── button.tsx
+│   │   ├── header.tsx
+│   │   ├── layout.tsx
+│   │   ├── login.tsx
+│   │   ├── movieCard.tsx
+│   │   ├── register.tsx
+│   │   └── watchlistItem.tsx
+│   ├── config
+│   │   └── routes.tsx
+│   ├── pages
+│   │   ├── _app.tsx
+│   │   ├── api
+│   │   │   ├── addMovies.ts
+│   │   │   ├── deleteMovies.ts
+│   │   │   ├── getMovies.ts
+│   │   │   ├── searchMovies.ts
+│   │   │   └── updateMovies.ts
+│   │   ├── index.tsx
+│   │   ├── login.tsx
+│   │   ├── movie
+│   │   │   └── [id].tsx
+│   │   ├── register.tsx
+│   │   ├── search.tsx
+│   │   └── watchlist.tsx
+│   └── providers
+│       ├── appwriteProvider.tsx
+│       ├── databaseProvider.tsx
+│       └── userProvider.tsx
+├── structures.txt
+├── styles
+│   └── globals.css
+├── tailwind.config.js
+├── tsconfig.json
+├── tsconfig.tsbuildinfo
+├── typings
+│   ├── movie.types.ts
+│   ├── page.types.ts
+│   └── search.types.ts
+├── utils
+│   └── helpers.ts
+└── yarn.lock
+
+16 directories, 69 files

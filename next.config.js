@@ -1,9 +1,9 @@
 // @ts-check
-const { withExpo } = require('@expo/next-adapter');
+
 /** @type {import('next').NextConfig} */
-const nextConfig = withExpo({
+const nextConfig = {
   reactStrictMode: true,
-  transpilePackages: ['react-native', 'expo'],
+
   images: {
     remotePatterns: [
       {
@@ -15,6 +15,6 @@ const nextConfig = withExpo({
     ],
   },
   typescript: { ignoreBuildErrors: true }, //
-});
+};
 
 module.exports = nextConfig;
