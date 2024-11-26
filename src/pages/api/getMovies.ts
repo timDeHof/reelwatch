@@ -1,7 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next/types';
-import { Query } from 'appwrite';
-
-import { databases } from '@/lib/appwrite';
+import { movieApi } from '@/entities/movie/api';
 
 export default async function handler(
   req: NextApiRequest,
@@ -9,17 +7,11 @@ export default async function handler(
 ) {
   try {
     const limit: number = parseInt(req.query.limit as string);
-    const offsetParam: string | string[] | undefined = req.query.offset;
-    const offset: number =
-      typeof offsetParam === 'string' ? parseInt(offsetParam) : 0;
+    const offset: number = parseInt(req.query.offset as string) || 0;
 
-    const response = await databases.listDocuments(
-      process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID as string,
-      process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ID as string,
-      [Query.limit(limit), Query.offset(offset)],
-    );
-    res.status(200).json({ data: response, count: response.total });
+    const response = await movieApi.getMovies(limit, offset);
+    res.status(200).json(response);
   } catch (e) {
-    res.status(500).json({ data: e });
+    res.status(500).json({ error: 'Failed to fetch movies' });
   }
 }

@@ -1,21 +1,17 @@
 import { NextApiRequest, NextApiResponse } from 'next/types';
+import { movieApi } from '@/entities/movie/api';
 
-import { databases } from '@/lib/appwrite';
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
   try {
-    const documentID = req.query.documentID;
+    const documentID = req.query.documentID as string;
 
-    await databases.deleteDocument(
-      process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID as string,
-      process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ID as string,
-      documentID as string,
-    );
+     await movieApi.deleteMovie(documentID);
     res.status(200).json({ data: 'success' });
   } catch (e) {
-    res.status(500).json({ data: e });
+    res.status(500).json({ error: 'Failed to delete movie' });
   }
 }

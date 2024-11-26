@@ -1,35 +1,17 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { SearchResult } from '@/typings/search.types';
-import axios from 'axios';
-
-import { TMDB_URL } from '@/config/routes';
+import { movieApi } from '@/entities/movie/api';
+import { SearchResult } from '@/entities/movie/api';
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<SearchResult>,
 ) {
   try {
-    const query = req.query.query;
-    const currentPage = req.query.currentPage;
+    const query = req.query.query as string;
+    const currentPage = parseInt(req.query.currentPage as string);
 
-    const response = await axios(
-      `${TMDB_URL}&page=${currentPage}&query=${query}`,
-    );
-    const data = await response.data;
-    if (data.results.length > 0) {
-      const movies = data.results;
-      const total_pages = data.total_pages;
-      const total_results = data.total_results;
-      return res.status(200).json({
-        results: movies,
-        meta: {
-          totalPages: total_pages,
-          totalResults: total_results,
-        },
-      });
-    } else {
-      console.log('it is not a movie');
-    }
+    const response = await movieApi.searchMovies(query, currentPage);
+    res.status(200).json(response);
   } catch (error) {
     console.log(error);
     res.status(500).json({
