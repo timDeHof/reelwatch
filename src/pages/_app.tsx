@@ -3,10 +3,10 @@ import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { Provider } from 'jotai';
 
-import { WatchlistProvider } from '@/providers/databaseProvider';
-import { UserProvider } from '@/providers/userProvider';
+import { WatchlistProvider } from '@/app/providers/databaseProvider';
+import { UserProvider } from '@/app/providers/userProvider';
 
-import '@/styles/globals.css';
+import '@/app/styles/globals.css';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
