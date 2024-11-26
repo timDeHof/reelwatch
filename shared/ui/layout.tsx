@@ -6,10 +6,10 @@ import { Inter } from 'next/font/google';
 import Head from 'next/head';
 import { useAtom } from 'jotai';
 
-import { isLoggedInAtom } from '@/atoms/user';
-import { client } from '@/lib/appwrite';
-import { useUser } from '@/providers/userProvider';
-import Header from './header';
+import { isLoggedInAtom } from '@/entities/user/model/store';
+import { client } from '@/shared/lib/appwrite';
+import { useUser } from '../../app/providers/userProvider';
+import Header from '../../widgets/header';
 
 // Initializing the 'Inter' font object with a subset of "latin"
 const inter = Inter({
@@ -68,7 +68,7 @@ const Layout = ({ children }: LayoutProps) => {
       </Head>
       {/* The header section */}
       <Header user={user} isLoggedIn={isLoggedIn} />
-      <div className={`${inter.variable} container mx-auto p-8`}>
+      <div className={`${inter.variable} min-h-screen  mx-auto p-8`}>
         {/* The container for child components */}
         {children}
       </div>
